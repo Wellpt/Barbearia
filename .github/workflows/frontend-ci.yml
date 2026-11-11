@@ -1,0 +1,63 @@
+name: Frontend CI e GitHub Pages
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Lint, TypeScript e build
+    runs-on: ubuntu-latest
+    env:
+      VITE_API_URL: https://barbearias-api-ap4k.onrender.com
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v7
+
+      - name: Preparar o Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci --include=dev
+
+      - name: Verificar o código com ESLint
+        run: npm run lint
+
+      - name: Verificar TypeScript e gerar build
+        run: npm run build
+
+      - name: Preparar arquivos para publicação
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: Publicar no GitHub Pages
+    if: github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - name: Configurar o GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Publicar o site
+        id: deployment
+        uses: actions/deploy-pages@v5
