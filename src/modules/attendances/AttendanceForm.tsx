@@ -45,7 +45,7 @@ export function AttendanceForm({ options, isLoading, isSaving, error, onSave }: 
             <label htmlFor="attendance-customer">Cliente</label>
             <select id="attendance-customer" name="customerId" required autoFocus value={customerId} onChange={event => setCustomerId(event.target.value)}>
               <option value="">Selecione o cliente</option>
-              {options.customers.map(customer => <option key={customer.id} value={customer.id}>{customer.name} — CPF {customer.cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, "$1.$2.$3-$4")}</option>)}
+              {options.customers.map(customer => <option key={customer.id} value={customer.id}>{customer.name}</option>)}
             </select>
           </div>
           <div className="form-field">
