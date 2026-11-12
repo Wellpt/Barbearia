@@ -6,7 +6,7 @@ export function AttendanceConfirmation({ receipt }: { receipt: AttendanceReceipt
 
   return (
     <section className="attendance-confirmation" aria-labelledby="attendance-confirmation-title">
-      <div className="attendance-confirmation-heading"><div><p className="eyebrow">ÚLTIMO LANÇAMENTO</p><h2 id="attendance-confirmation-title" role="status">Atendimento #{receipt.id} registrado</h2></div><strong>{amount}</strong></div>
+      <div className="attendance-confirmation-heading"><div><p className="eyebrow">ÚLTIMO LANÇAMENTO</p><h2 id="attendance-confirmation-title" role="status">Atendimento registrado</h2></div><strong>{amount}</strong></div>
       <dl>
         <div><dt>Cliente</dt><dd>{receipt.customerName}</dd></div>
         <div><dt>Serviço</dt><dd>{receipt.serviceName}</dd></div>
