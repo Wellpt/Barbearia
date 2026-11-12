@@ -24,12 +24,12 @@ export function AppSidebar() {
         <NavLink
           className="brand"
           to="/"
-          aria-label="Barbearia Peçanha, início"
+          aria-label="Barbearia, início"
           onClick={closeMenu}
         >
           <BrandMark />
           <span>
-            Barbearia Peçanha<small>Gestão do dia a dia</small>
+            Barbearia<small>Gestão do dia a dia</small>
           </span>
         </NavLink>
         <button

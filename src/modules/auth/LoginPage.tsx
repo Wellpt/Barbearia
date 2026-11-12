@@ -38,7 +38,7 @@ export function LoginPage() {
         <div className="brand">
           <BrandMark />
           <span>
-            Barbearia Peçanha<small>Gestão do dia a dia</small>
+            Barbearia<small>Gestão do dia a dia</small>
           </span>
         </div>
         <div className="login-intro-copy">
@@ -61,7 +61,7 @@ export function LoginPage() {
       <main className="login-content">
         <section className="login-form-container" aria-labelledby="login-title">
           <p className="eyebrow">BEM-VINDO DE VOLTA</p>
-          <h1 id="login-title">Entre na Barbearia Peçanha</h1>
+          <h1 id="login-title">Entre na Barbearia</h1>
           <p className="login-description">
             Use o e-mail e a senha da conta de operação.
           </p>

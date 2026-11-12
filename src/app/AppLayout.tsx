@@ -38,7 +38,7 @@ export function AppLayout() {
           <Outlet />
         </main>
         <footer>
-          Barbearia Peçanha · Gestão simples, cuidado em cada detalhe.
+          Barbearia · Gestão simples, cuidado em cada detalhe.
         </footer>
       </div>
     </div>
